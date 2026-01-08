@@ -1,0 +1,53 @@
+═══════════════════════════════════════════════════════════════
+   MONGODB ATLAS CONNECTION STRING - CORRECT FORMAT
+═══════════════════════════════════════════════════════════════
+
+YOUR CURRENT CONNECTION STRING ISSUE:
+───────────────────────────────────────────────────────────────
+❌ Missing database name before the "?"
+❌ Authentication error (wrong password or needs encoding)
+
+CORRECT FORMAT:
+───────────────────────────────────────────────────────────────
+mongodb+srv://USERNAME:PASSWORD@HOST/DATABASE?retryWrites=true&w=majority
+
+YOUR SPECIFIC FORMAT SHOULD BE:
+───────────────────────────────────────────────────────────────
+mongodb+srv://abhishek2110pal_db_user:YOUR_PASSWORD@sacalablewebapplication.s3i3rj8.mongodb.net/scalable-web-app?retryWrites=true&w=majority
+                                                                                                   ↑
+                                                                                      Database name MUST be here!
+
+EXAMPLE .env FILE:
+───────────────────────────────────────────────────────────────
+PORT=5000
+MONGODB_URI=mongodb+srv://abhishek2110pal_db_user:MyPassword123@sacalablewebapplication.s3i3rj8.mongodb.net/scalable-web-app?retryWrites=true&w=majority
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+NODE_ENV=development
+
+IMPORTANT NOTES:
+───────────────────────────────────────────────────────────────
+1. Replace YOUR_PASSWORD with your actual MongoDB Atlas database password
+2. If password has special characters, URL encode them:
+   @ = %40
+   # = %23
+   $ = %24
+   % = %25
+   & = %26
+3. Database name (scalable-web-app) MUST come before the "?"
+4. No quotes around the connection string
+5. No spaces in the connection string
+
+TO GET YOUR PASSWORD:
+───────────────────────────────────────────────────────────────
+1. Login to MongoDB Atlas
+2. Go to Database Access
+3. Find your user: abhishek2110pal_db_user
+4. Click "Edit" to see/reset password
+5. Copy password exactly (case-sensitive!)
+
+TO TEST YOUR CONNECTION:
+───────────────────────────────────────────────────────────────
+Run: npm run test-db
+or: node check-connection.js
+
+═══════════════════════════════════════════════════════════════
